@@ -1,5 +1,6 @@
 package com.nextsofts.serviciomusica;
 
+import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.Service;
 import android.content.Context;
@@ -26,7 +27,7 @@ public class ServicioMusica extends Service {
 
     @Override
     public int onStartCommand(Intent intenc,int flags,int idArranque){
-        NotificationCompat.Builder notific=new NotificationCompat.Builder(this)
+        Notification.Builder notific=new Notification.Builder(this)
                 .setContentTitle("creando servicio de musica")
                 .setSmallIcon(R.drawable.image)
                 .setContentText("pulsa en el boton para ver");

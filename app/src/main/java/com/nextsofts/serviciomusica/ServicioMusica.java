@@ -35,7 +35,10 @@ public class ServicioMusica extends Service {
                 .setContentText("pulsa en el boton para ver")
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(),android.R.drawable.ic_media_play))
                 .setWhen(System.currentTimeMillis()+1000*60*60)
-                .setContentInfo("mas info");
+                .setContentInfo("mas info")
+                .setDefaults(Notification.DEFAULT_SOUND)
+                .setDefaults(Notification.DEFAULT_VIBRATE)
+                .setDefaults(Notification.DEFAULT_LIGHTS);
 
         PendingIntent intencionPendiente=PendingIntent.getActivity(this,0,new Intent(this,MainActivity.class),0);
         notific.setContentIntent(intencionPendiente);

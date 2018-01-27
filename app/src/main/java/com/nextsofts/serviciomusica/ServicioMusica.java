@@ -6,6 +6,7 @@ import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.os.IBinder;
 import android.support.v4.app.NotificationCompat;
@@ -31,7 +32,10 @@ public class ServicioMusica extends Service {
         Notification.Builder notific=new Notification.Builder(this)
                 .setContentTitle("creando servicio de musica")
                 .setSmallIcon(R.drawable.image)
-                .setContentText("pulsa en el boton para ver");
+                .setContentText("pulsa en el boton para ver")
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(),android.R.drawable.ic_media_play))
+                .setWhen(System.currentTimeMillis()+1000*60*60)
+                .setContentInfo("mas info");
 
         PendingIntent intencionPendiente=PendingIntent.getActivity(this,0,new Intent(this,MainActivity.class),0);
         notific.setContentIntent(intencionPendiente);

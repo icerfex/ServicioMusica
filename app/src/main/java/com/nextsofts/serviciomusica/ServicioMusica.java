@@ -2,6 +2,7 @@ package com.nextsofts.serviciomusica;
 
 import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -31,6 +32,10 @@ public class ServicioMusica extends Service {
                 .setContentTitle("creando servicio de musica")
                 .setSmallIcon(R.drawable.image)
                 .setContentText("pulsa en el boton para ver");
+
+        PendingIntent intencionPendiente=PendingIntent.getActivity(this,0,new Intent(this,MainActivity.class),0);
+        notific.setContentIntent(intencionPendiente);
+
         NotificationManager notificationManaget= (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManaget.notify(ID_NOTIFICACION_CREAR,notific.build());
 

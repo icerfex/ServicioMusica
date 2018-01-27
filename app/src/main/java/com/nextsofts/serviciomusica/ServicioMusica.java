@@ -47,6 +47,8 @@ public class ServicioMusica extends Service {
     @Override
     public void onDestroy(){
         Toast.makeText(this,"servicio detenido",Toast.LENGTH_SHORT).show();
+        NotificationManager notificationManager=(NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(ID_NOTIFICACION_CREAR);
         reproductor.stop();
     }
     @Override
